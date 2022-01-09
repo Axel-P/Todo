@@ -1,0 +1,10 @@
+{
+    "inputs":{
+        "username": "Username",
+        "password": "Password"
+    },
+    "actions":{
+        "login": "Login",
+        "logout": "Logout"
+    }
+}

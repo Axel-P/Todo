@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react'
+import { withTranslation } from 'react-i18next'
 import { SafeAreaView, Text, Button } from 'react-native'
-import { ScreenNavigationProp } from '../types'
+import { IPageProps } from '../types'
 
-export default class Home extends PureComponent<ScreenNavigationProp> {
+class Home extends PureComponent<IPageProps> {
   private logout = (): void => {
     this.props.navigation.navigate('Login')
   }
@@ -16,3 +17,5 @@ export default class Home extends PureComponent<ScreenNavigationProp> {
     )
   }
 }
+
+export default withTranslation()(Home)

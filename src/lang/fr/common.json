@@ -1,0 +1,10 @@
+{
+    "inputs":{
+        "username": "Nom d'utilisateur",
+        "password": "Mot de passe"
+    },
+    "actions":{
+        "login": "Connexion",
+        "logout": "Déconnexion"
+    }
+}

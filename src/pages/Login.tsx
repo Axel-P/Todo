@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react'
 import { SafeAreaView, TextInput, Button } from 'react-native'
-import { ScreenNavigationProp } from '../types'
+import { IPageProps } from '../types'
+import { withTranslation } from 'react-i18next'
 
-export default class Login extends PureComponent<ScreenNavigationProp> {
+class Login extends PureComponent<IPageProps> {
   private login = (): void => {
     this.props.navigation.navigate('Home')
   }
@@ -10,14 +11,19 @@ export default class Login extends PureComponent<ScreenNavigationProp> {
   render() {
     return (
       <SafeAreaView>
-        <TextInput placeholder={'Username'} placeholderTextColor={'black'} />
         <TextInput
-          placeholder={'Password'}
+          placeholder={this.props.t('inputs.username')}
+          placeholderTextColor={'black'}
+        />
+        <TextInput
+          placeholder={this.props.t('inputs.password')}
           placeholderTextColor={'black'}
           secureTextEntry={true}
         />
-        <Button onPress={this.login} title={'Login'} />
+        <Button onPress={this.login} title={this.props.t('actions.login')} />
       </SafeAreaView>
     )
   }
 }
+
+export default withTranslation()(Login)
