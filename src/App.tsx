@@ -9,8 +9,9 @@ import {
 import { RootStackParamList } from './types'
 import { withTranslation, WithTranslation } from 'react-i18next'
 import HeaderButton from './commonComponents/headerButton'
-import Login from './pages/Login'
-import Home from './pages/Home'
+import ApiConnector from './api/apiConnector'
+import Login from './pages/login'
+import Home from './pages/home'
 
 const Stack = createStackNavigator<RootStackParamList>()
 const screenOptionsGenerator = (pageTitle: string): StackNavigationOptions => {
@@ -29,7 +30,7 @@ const stackNavigationOptions: StackNavigationOptions = {
 class App extends PureComponent<WithTranslation> {
   render() {
     return (
-      <>
+      <ApiConnector>
         <StatusBar barStyle="dark-content" />
         <NavigationContainer>
           <Stack.Navigator screenOptions={stackNavigationOptions}>
@@ -47,7 +48,7 @@ class App extends PureComponent<WithTranslation> {
             />
           </Stack.Navigator>
         </NavigationContainer>
-      </>
+      </ApiConnector>
     )
   }
 }

@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react'
 import { withTranslation } from 'react-i18next'
-import { SafeAreaView, Text, Button } from 'react-native'
-import { IPageProps } from '../types'
+import { SafeAreaView, Button } from 'react-native'
+import { IPageProps } from '../../types'
+import WelcomeMessage from './welcomeMessage'
 
 class Home extends PureComponent<IPageProps> {
   private logout = (): void => {
@@ -11,7 +12,7 @@ class Home extends PureComponent<IPageProps> {
   render() {
     return (
       <SafeAreaView>
-        <Text>Home</Text>
+        <WelcomeMessage />
         <Button onPress={this.logout} title={'Logout'} />
       </SafeAreaView>
     )
