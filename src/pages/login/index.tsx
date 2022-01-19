@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { SafeAreaView } from 'react-native'
-import { IPageProps } from '../../types'
+import { IPageProps } from '../../types/applicationTypes'
 import { withTranslation } from 'react-i18next'
 import UserNameField from './userNameField'
 import PasswordField from './passwordField'

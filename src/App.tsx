@@ -6,7 +6,7 @@ import {
   createStackNavigator,
   StackNavigationOptions,
 } from '@react-navigation/stack'
-import { RootStackParamList } from './types'
+import { RootStackParamList } from './types/applicationTypes'
 import { withTranslation, WithTranslation } from 'react-i18next'
 import HeaderButton from './commonComponents/headerButton'
 import ApiConnector from './api/apiConnector'

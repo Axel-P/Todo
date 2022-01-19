@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "web": "react-scripts start",
-    "start": "react-native start",
+    "ios": "npm run graphql:generate-types && react-native run-ios",
+    "web": "npm run graphql:generate-types && react-scripts start",
+    "start": "npm run graphql:generate-types && react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
+    "graphql:generate-types": "rm -r src/types/graphql/ && apollo codegen:generate --localSchemaFile=graphql-schema.json --target=typescript --tagName=gql --outputFlat src/types/graphql",
     "prepare": "husky install"
   },
   "dependencies": {

@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
+import { ApolloClient, ApolloProvider } from '@apollo/client'
+import cache from './cache'
 
 const uri = 'http://localhost:4000/graphql'
-const cache = new InMemoryCache()
 
 const client = new ApolloClient({
   uri,

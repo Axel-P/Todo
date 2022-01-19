@@ -8,14 +8,14 @@ import userNameVar from '../../api/localFields/user/userName'
 import { WithTranslation, withTranslation } from 'react-i18next'
 import { useReactiveVar } from '@apollo/client'
 
-const UserNameField: FunctionComponent<WithTranslation> = ({ t }) => {
-  let userName = useReactiveVar(userNameVar)
+const InputComponent: FunctionComponent<WithTranslation> = ({ t }) => {
+  const inputField = useReactiveVar(userNameVar)
 
   return (
     <TextInput
       placeholder={t('inputs.username')}
       placeholderTextColor={'black'}
-      value={userName}
+      value={inputField}
       onChange={(e: NativeSyntheticEvent<TextInputChangeEventData>) => {
         userNameVar(e.nativeEvent.text)
       }}
@@ -23,4 +23,4 @@ const UserNameField: FunctionComponent<WithTranslation> = ({ t }) => {
   )
 }
 
-export default withTranslation()(UserNameField)
+export default withTranslation()(InputComponent)
