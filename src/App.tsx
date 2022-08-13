@@ -12,6 +12,7 @@ import HeaderButton from './commonComponents/headerButton'
 import ApiConnector from './api/apiConnector'
 import Login from './pages/login'
 import Home from './pages/home'
+import Callback from './pages/authCallback'
 
 const Stack = createStackNavigator<RootStackParamList>()
 const screenOptionsGenerator = (pageTitle: string): StackNavigationOptions => {
@@ -27,12 +28,21 @@ const stackNavigationOptions: StackNavigationOptions = {
   headerRight: () => <HeaderButton />,
 }
 
+const linking = {
+  prefixes: ['http://localhost:3000'],
+  config: {
+    screens: {
+      Callback: 'callback',
+    },
+  },
+}
+
 class App extends PureComponent<WithTranslation> {
   render() {
     return (
       <ApiConnector>
         <StatusBar barStyle="dark-content" />
-        <NavigationContainer>
+        <NavigationContainer linking={linking}>
           <Stack.Navigator screenOptions={stackNavigationOptions}>
             <Stack.Screen
               name={'Login'}
@@ -40,6 +50,11 @@ class App extends PureComponent<WithTranslation> {
                 this.props.t('pages:login.title'),
               )}
               component={Login}
+            />
+            <Stack.Screen
+              name={'Callback'}
+              options={screenOptionsGenerator(this.props.t('pages:home.title'))}
+              component={Callback}
             />
             <Stack.Screen
               name={'Home'}
