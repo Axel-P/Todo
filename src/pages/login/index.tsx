@@ -2,17 +2,23 @@ import React, { PureComponent } from 'react'
 import { SafeAreaView } from 'react-native'
 import { IPageProps } from '../../types/applicationTypes'
 import { withTranslation } from 'react-i18next'
-import UserNameField from './userNameField'
-import PasswordField from './passwordField'
-import ActionButton from './actionButton'
+import { Text } from 'react-native'
+import Auth from '../../Auth'
 
 class Login extends PureComponent<IPageProps> {
+  componentDidMount() {
+    if (Auth.isAuthenticated()) {
+      console.log('is authenticated!')
+    } else {
+      console.log('is not authenticated!')
+      Auth.login()
+    }
+  }
+
   render() {
     return (
       <SafeAreaView>
-        <UserNameField />
-        <PasswordField />
-        <ActionButton />
+        <Text>Redirecting you to login!</Text>
       </SafeAreaView>
     )
   }
